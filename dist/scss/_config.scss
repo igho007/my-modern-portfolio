@@ -1,0 +1,19 @@
+$primary-color: #444;
+$secondary-color: #eece1a;
+@mixin easeOut {
+  transition: all 0.7s ease-in-out;
+}
+
+$show-home-image: true;
+$show-image: url("../images/background1.jpg");
+$background-opacity: 0.8;
+
+@mixin background {
+  @if $show-home-image {
+    &#bg-img {
+      background-attachment: fixed;
+      background: $show-image;
+      background-size: cover;
+    }
+  }
+}
