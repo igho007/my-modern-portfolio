@@ -232,9 +232,9 @@ main#home h1 {
 .about-info .bio-image {
   grid-area: bioimage;
   margin: auto;
-  background-size: 70%;
-  height: 200px;
-  width: 200px;
+  background-size: 90%;
+  height: 250px;
+  width: 250px;
   border-radius: 50%;
 }
 
@@ -261,33 +261,58 @@ main#home h1 {
   border-bottom: #eece1a 5px solid;
 }
 
-.project {
+.projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 }
 
-.project img {
+.projects img {
   width: 100%;
-  border: 3px #fff solid;
+  border: 3px solid #eece1a;
 }
 
-.project img:hover {
+.projects:hover {
   opacity: 0.5;
   border-color: #eece1a;
   transition: all 0.7s ease-in-out;
 }
 
-.btn, .btn-dark {
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.boxes div {
+  font-size: 2rem;
+  padding: 1.5rem 2.5rem;
+  border: 3px #fff solid;
+  margin-bottom: 3rem;
+  transition: all 0.7s ease-in-out;
+}
+
+.boxes div:hover {
+  padding: 0.5rem 1.5rem;
+  background: #eece1a;
+}
+
+.boxes div:hover span {
+  color: #000;
+}
+
+.btn, .btn-dark, .btn-light {
   display: block;
   padding: 0.5rem;
   border: 0;
   margin-bottom: 0.3rem;
 }
 
-.btn:hover, .btn-dark:hover {
+.btn:hover, .btn-dark:hover, .btn-light:hover {
   background: #eece1a;
-  color: #fff;
+  color: #000;
   height: 60px;
 }
 
@@ -296,7 +321,7 @@ main#home h1 {
   color: #fff;
 }
 
-.btn-dark {
+.btn-light {
   background: lighten #2c0202, 50;
   color: #000;
 }
@@ -309,15 +334,45 @@ main#home h1 {
   height: 60px;
 }
 
-@media screen and (min-width: 1171px) {
-  .projects {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.cv-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas: "cv cv cv" "skill1 skill2 skill3";
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cv-info .cv-details {
+  grid-area: cv;
+  font-size: 1.5rem;
+}
+
+.cv-info .skill-1 {
+  grid-area: skill1;
+}
+
+.cv-info .skill-2 {
+  grid-area: skill2;
+}
+
+.cv-info .skill-3 {
+  grid-area: skill3;
+}
+
+.cv-info .skills {
+  background: #400303;
+  padding: 0.5rem;
+  border-bottom: #eece1a 5px solid;
 }
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
-  .projects {
-    grid-template-columns: repeat(3, 1fr);
+  main {
+    text-align: center;
+    align-items: center;
+  }
+  main .lg-heading {
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-size: 5rem;
   }
 }
 
@@ -329,6 +384,7 @@ main#home h1 {
   main .lg-heading {
     line-height: 1;
     margin-bottom: 1rem;
+    font-size: 4rem;
   }
   ul.menu-nav,
   div.menu-branding {
@@ -360,16 +416,14 @@ main#home h1 {
     grid-template-areas: "bioimage" "bio" "job1" "job2" "job3";
     grid-template-columns: 1fr;
   }
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
+  .cv-info {
+    grid-template-areas: "cv" "skill1 " "skill2" "skill3";
+    grid-template-columns: 1fr;
   }
 }
 
 @media screen and (max-width: 500px) {
   main#home h1 {
     margin-top: 10vh;
-  }
-  .projects {
-    grid-template-columns: 1fr;
   }
 }
